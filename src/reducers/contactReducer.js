@@ -1,7 +1,14 @@
-import { GET_CONTACTS, ADD_CONTACT, DELETE_CONTACT } from '../actions/types';
+import {
+  GET_CONTACTS,
+  GET_CONTACT,
+  ADD_CONTACT,
+  UPDATE_CONTACT,
+  DELETE_CONTACT
+} from '../actions/types';
 
 const initialState = {
-  contacts: []
+  contacts: [],
+  contact: {}
 };
 
 export default function(state=initialState, action) {
@@ -10,6 +17,11 @@ export default function(state=initialState, action) {
       return {
         ...state,
         contacts: action.payload
+      };
+    case GET_CONTACT:
+      return {
+        ...state,
+        contact: action.payload
       };
     case ADD_CONTACT:
       return {
