@@ -34,6 +34,15 @@ export const addContact = (contactData) => async dispatch => {
   });
 }
 
+export const updateContact = (id, contactData) => async dispatch => {
+  const res = await axios.put(`https://jsonplaceholder.typicode.com/users/${id}`, contactData);
+
+  dispatch({
+    type: UPDATE_CONTACT,
+    payload: res.data
+  });
+}
+
 export const deleteContact = (id) => async dispatch => {
   try {
     await axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`);
